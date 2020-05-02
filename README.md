@@ -21,8 +21,12 @@ Open the browser then go to this address `localhost:4200`
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Install npm
 Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. Perfect for development. Install it using npm.
 npm install -g nodemon
+
+## Run using Nodemon to automatically reload changes to server
 Run 'nodemon server.js' 
 
 ## Code scaffolding
