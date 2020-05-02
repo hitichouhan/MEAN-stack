@@ -1,0 +1,19 @@
+db.emp.insert({ name: "person1", address: "pune", phone: "+91234234" })
+db.emp.insert({ name: "person2", address: "mumbai", phone: "+91233345", email: "p2@test.com"})
+db.emp.insert({ name: "person3" })
+db.emp.insert({ address: "pune" })
+db.emp.insert({ name: "person4", _id: 1})
+
+
+db.emp.mapReduce( 
+    function() {emit(key,value);}, 
+	
+   function(key, values) {return Array.sum(values)}, {  
+      query:{name:"vk1"},  
+      out:"post_total" 
+   }
+)
+db.emp.mapReduce( function(){emit(this.name,this.age);}, function(key,values){return Array.sum(values)}, { out : "test"})
+
+db.emp.mapReduce( function(){emit(this.name,this.age);}, function(key,values){return Array.sum(values)}, { query : {name : "vk"}, out : "test"})
+db.emp.mapReduce( function(){emit(this.name,this.age);}, function(key,values){return Array.sum(values)}, { query : {name: {$in : ["vk1","vk2"]}}, out : "test"})
